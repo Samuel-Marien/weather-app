@@ -17,3 +17,11 @@ export const fetchSuperWeather = async (lat, lon) => {
   );
   return data;
 };
+
+// fetch the api by coords for air pollution stats
+export const fetchPollution = async (lat, lon) => {
+  const { data } = await axios(
+    `http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+  );
+  return data;
+};

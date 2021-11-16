@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
-import { fetchWeather, fetchSuperWeather } from './Playground';
+import Context from './context';
+
+import { fetchWeather, fetchSuperWeather, fetchPollution } from './fecthStore';
 
 let userWord = '';
 const handleChange = (e) => {
@@ -11,17 +13,27 @@ const handleSubmit = (e) => {
   e.preventDefault();
 };
 
-const fectchInfo = async (userValue) => {
-  const myData = await fetchWeather(userValue);
-  const mySuperData = await fetchSuperWeather(
-    myData.coord.lat,
-    myData.coord.lon
-  );
-  console.log(mySuperData);
-};
-
 const MyInput = () => {
-  const [userValue, setUserValue] = useState('');
+  const { userValue, setUserValue } = useContext(Context);
+  const { setWeatherCard } = useContext(Context);
+
+  const fectchInfo = async (userValue) => {
+    //catch the coords
+    const myData = await fetchWeather(userValue);
+    //put the coords in request
+    const mySuperData = await fetchSuperWeather(
+      myData.coord.lat,
+      myData.coord.lon
+    );
+    //set the state with data
+    setWeatherCard(mySuperData);
+    //pollution
+    const myPollutionData = await fetchPollution(
+      myData.coord.lat,
+      myData.coord.lon
+    );
+    console.log(myPollutionData);
+  };
 
   const handleClick = () => {
     setUserValue(userWord);
