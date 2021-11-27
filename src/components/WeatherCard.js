@@ -8,8 +8,12 @@ const WeatherCard = () => {
 
   return (
     <div className="border border-gray-600 p-3">
-      <p>{weatherCard.timezone}</p>
-      {/* <p>{weatherCard.current.temp}</p> */}
+      {weatherCard.lenght > 0 ? (
+        <div>
+          {' '}
+          <p>{weatherCard.location.name}</p>
+        </div>
+      ) : null}
     </div>
   );
 };

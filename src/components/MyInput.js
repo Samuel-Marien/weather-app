@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import Context from './context';
 
-import { fetchWeather, fetchSuperWeather } from './fecthStore';
+import { fetchWeather } from './fecthStore';
 
 let userWord = '';
 const handleChange = (e) => {
@@ -17,17 +17,10 @@ const MyInput = () => {
   const { userValue, setUserValue } = useContext(Context);
   const { setWeatherCard } = useContext(Context);
 
+  //catch the by cityName
   const fectchInfo = async (userValue) => {
-    //catch the coords
     const myData = await fetchWeather(userValue);
-    setUserValue(myData.name);
-    //put the coords in request
-    const mySuperData = await fetchSuperWeather(
-      myData.coord.lat,
-      myData.coord.lon
-    );
-    //set the state with data
-    setWeatherCard(mySuperData);
+    setWeatherCard(myData);
   };
 
   const handleClick = () => {

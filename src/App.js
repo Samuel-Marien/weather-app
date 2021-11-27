@@ -4,7 +4,7 @@ import './App.css';
 
 import MyInput from './components/MyInput';
 import WeatherCard from './components/WeatherCard';
-import MyButton from './components/MyButton';
+// import MyButton from './components/MyButton';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <div className="p-6 items-center justify-center">
           <MyInput />
           <WeatherCard />
-          <MyButton />
+          {/* <MyButton /> */}
         </div>
       </div>
     </Provider>

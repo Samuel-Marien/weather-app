@@ -2,10 +2,18 @@ import axios from 'axios';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-// fetch the api by city name
+// fetch the api by city name(openWaethermap.com)
+// export const fetchWeather = async (cityName) => {
+//   const { data } = await axios(
+//     `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`
+//   );
+//   return data;
+// };
+
+//with weatherApi.com
 export const fetchWeather = async (cityName) => {
   const { data } = await axios(
-    `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`
+    `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cityName}`
   );
   return data;
 };
