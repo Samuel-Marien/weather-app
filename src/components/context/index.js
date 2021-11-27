@@ -2,11 +2,8 @@ import React, { createContext, useState } from 'react';
 
 export const Provider = (props) => {
   const [userValue, setUserValue] = useState('');
-  const [weatherCard, setWeatherCard] = useState({});
-  const [myPosition, setMyPosition] = useState({
-    lat: 48.87917,
-    lon: 2.594222
-  });
+  const [weatherCard, setWeatherCard] = useState('');
+  const [myPosition, setMyPosition] = useState('');
 
   return (
     <Context.Provider

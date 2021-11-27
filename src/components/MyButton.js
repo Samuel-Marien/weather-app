@@ -2,29 +2,11 @@ import React, { useContext } from 'react';
 
 import Context from './context';
 
-import { fetchSuperWeather } from './fecthStore';
+import { fetchSuperWeather, getLocation } from './fecthStore';
 
 const MyButton = () => {
   const { myPosition, setMyPosition } = useContext(Context);
   const { setWeatherCard } = useContext(Context);
-
-  const getLocation = () => {
-    //check for browser support first
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        let myCurrentCoords = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude
-        };
-        // console.log(myCurrentCoords);
-        setMyPosition(myCurrentCoords);
-        return myCurrentCoords;
-      });
-    } else {
-      let err = new Error('No browser support for geolocation');
-      return Promise.reject(err);
-    }
-  };
 
   const fectchInfo = async () => {
     //put the coords in request
@@ -33,13 +15,13 @@ const MyButton = () => {
     setWeatherCard(mySuperData);
   };
 
-  // console.log(myPosition);
-
   const handleClick = () => {
     //catch the coords
-    getLocation();
+    getLocation(setMyPosition);
+    //send request
     fectchInfo();
   };
+
   return (
     <button onClick={handleClick} className="border-2 border-gray-800 m-10">
       Current position
