@@ -4,6 +4,8 @@ import Context from './context';
 
 import { fetchSuperWeather, getLocation } from './fecthStore';
 
+import { BiCurrentLocation } from 'react-icons/bi';
+
 const MyButton = () => {
   const { myPosition, setMyPosition } = useContext(Context);
   const { setWeatherCard } = useContext(Context);
@@ -23,8 +25,11 @@ const MyButton = () => {
   };
 
   return (
-    <button onClick={handleClick} className="border-2 border-gray-800 m-10">
-      Current position
+    <button
+      onClick={handleClick}
+      className="border-2 border-gray-200 p-2 rounded shadow-lg"
+    >
+      <BiCurrentLocation size={25} />
     </button>
   );
 };

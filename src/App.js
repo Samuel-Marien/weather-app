@@ -8,7 +8,7 @@ function App() {
   return (
     <Provider>
       <div className="App">
-        <div className="m-24 p-6 items-center justify-center border border-gray-300">
+        <div className="m-24  items-center justify-center border border-gray-300">
           <WeatherCard />
         </div>
       </div>

@@ -44,17 +44,26 @@ const WeatherCard = () => {
   ]);
 
   return (
-    <div>
-      <MyInput />
-      {weatherCard ? (
-        <div className="">
-          <div>City name : {weatherCard.location.name}</div>
-          <div>Temp : {weatherCard.current.temp_c} °</div>
-          <div>Feel like : {weatherCard.current.feelslike_c} °</div>
-          <div>Humidity : {weatherCard.current.humidity} %</div>
+    <div className="w-1/3">
+      <div className="border-2 border-gray-500 ">
+        <div className="flex justify-between">
+          <MyInput />
+          <MyButton />
         </div>
-      ) : null}
-      <MyButton />
+
+        {weatherCard ? (
+          <div className="flex flex-col items-center">
+            <img
+              src={weatherCard.current.condition.icon}
+              alt={weatherCard.current.condition.text}
+            />
+            <div>City name : {weatherCard.location.name}</div>
+            <div>Temp : {weatherCard.current.temp_c} °</div>
+            <div>Feel like : {weatherCard.current.feelslike_c} °</div>
+            <div>Humidity : {weatherCard.current.humidity} %</div>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };
