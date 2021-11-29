@@ -5,6 +5,9 @@ export const Provider = (props) => {
   const [weatherCard, setWeatherCard] = useState('');
   const [myPosition, setMyPosition] = useState('');
   const [citySave, setCitySave] = useState('');
+  const [citySaveView, setCitySaveView] = useState(
+    localStorage.getItem('myValueInLocalStorage') || ''
+  );
 
   return (
     <Context.Provider
@@ -17,7 +20,9 @@ export const Provider = (props) => {
         myPosition,
         setMyPosition,
         citySave,
-        setCitySave
+        setCitySave,
+        citySaveView,
+        setCitySaveView
       }}
     />
   );

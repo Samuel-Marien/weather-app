@@ -6,10 +6,12 @@ import { MdFavoriteBorder } from 'react-icons/md';
 
 const SaveButton = () => {
   const { citySave } = useContext(Context);
+  const { setCitySaveView } = useContext(Context);
   // const [value, setValue] = useState('');
 
   const handleClick = () => {
     localStorage.setItem('myValueInLocalStorage', citySave);
+    setCitySaveView(citySave);
     console.log(citySave + ' is save to your favorites');
   };
 
