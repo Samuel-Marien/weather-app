@@ -13,12 +13,12 @@ const WeatherCard = () => {
   const { setCitySave } = useContext(Context);
   const { userValue } = useContext(Context);
 
-  // console.log(weatherCard);
+  console.log(weatherCard);
 
   useEffect(() => {
     //send the request by user value
     if (userValue) {
-      //catch the by cityName
+      //catch by cityName
       const fectchInfo = async () => {
         const myData = await fetchWeather(userValue);
         setWeatherCard(myData);
@@ -49,12 +49,11 @@ const WeatherCard = () => {
   ]);
 
   return (
-    <div className="w-1/3">
-      <div className="border-2 border-gray-500 ">
+    <div className="mr-5">
+      <div className="border border-gray-500 ">
         <div className="flex justify-between">
           <MyInput />
           <MyButton />
-          <SaveButton />
         </div>
 
         {weatherCard ? (
@@ -63,7 +62,10 @@ const WeatherCard = () => {
               src={weatherCard.current.condition.icon}
               alt={weatherCard.current.condition.text}
             />
-            <div>City name : {weatherCard.location.name}</div>
+            <div className="flex">
+              <div className="text-4xl">{weatherCard.location.name}</div>
+              <SaveButton />
+            </div>
             <div>Temp : {weatherCard.current.temp_c} °</div>
             <div>Feel like : {weatherCard.current.feelslike_c} °</div>
             <div>Humidity : {weatherCard.current.humidity} %</div>

@@ -3,11 +3,9 @@ import React, { createContext, useState } from 'react';
 export const Provider = (props) => {
   const [userValue, setUserValue] = useState('');
   const [weatherCard, setWeatherCard] = useState('');
-  const [myPosition, setMyPosition] = useState('');
+  const [myPosition, setMyPosition] = useState({});
   const [citySave, setCitySave] = useState('');
-  const [citySaveView, setCitySaveView] = useState(
-    localStorage.getItem('myValueInLocalStorage') || ''
-  );
+  const [citySaveView, setCitySaveView] = useState([]);
 
   return (
     <Context.Provider

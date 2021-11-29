@@ -8,8 +8,8 @@ import CitySaveBox from './components/CitySaveBox';
 function App() {
   return (
     <Provider>
-      <div className="App">
-        <div className="m-24  items-center justify-center border border-gray-300">
+      <div className="App w-2/3 mx-auto">
+        <div className="mt-24 flex border border-gray-300">
           <WeatherCard />
           <CitySaveBox />
         </div>
