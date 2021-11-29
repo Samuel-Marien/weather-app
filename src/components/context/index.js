@@ -4,6 +4,7 @@ export const Provider = (props) => {
   const [userValue, setUserValue] = useState('');
   const [weatherCard, setWeatherCard] = useState('');
   const [myPosition, setMyPosition] = useState('');
+  const [citySave, setCitySave] = useState('');
 
   return (
     <Context.Provider
@@ -14,7 +15,9 @@ export const Provider = (props) => {
         weatherCard,
         setWeatherCard,
         myPosition,
-        setMyPosition
+        setMyPosition,
+        citySave,
+        setCitySave
       }}
     />
   );

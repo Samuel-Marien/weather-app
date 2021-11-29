@@ -5,11 +5,14 @@ import Context from './context';
 import { fetchWeather, getLocation, fetchSuperWeather } from './fecthStore';
 import MyInput from './MyInput';
 import MyButton from './MyButton';
+import SaveButton from './SaveButton';
 
 const WeatherCard = () => {
   const { myPosition, setMyPosition } = useContext(Context);
   const { weatherCard, setWeatherCard } = useContext(Context);
+  const { setCitySave } = useContext(Context);
   const { userValue } = useContext(Context);
+
   console.log(weatherCard);
 
   useEffect(() => {
@@ -19,6 +22,7 @@ const WeatherCard = () => {
       const fectchInfo = async () => {
         const myData = await fetchWeather(userValue);
         setWeatherCard(myData);
+        setCitySave(myData.location.name);
       };
       fectchInfo();
       // or send the request by current position (auto)
@@ -38,6 +42,7 @@ const WeatherCard = () => {
   }, [
     myPosition.lat,
     myPosition.lon,
+    setCitySave,
     setMyPosition,
     setWeatherCard,
     userValue
@@ -49,6 +54,7 @@ const WeatherCard = () => {
         <div className="flex justify-between">
           <MyInput />
           <MyButton />
+          <SaveButton />
         </div>
 
         {weatherCard ? (
