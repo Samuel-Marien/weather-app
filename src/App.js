@@ -4,6 +4,7 @@ import './App.css';
 
 import WeatherCard from './components/WeatherCard';
 import CitySaveBox from './components/CitySaveBox';
+import Clock from './components/clock';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <div className="mt-24 flex border border-gray-300">
           <WeatherCard />
           <CitySaveBox />
+          <Clock />
         </div>
       </div>
     </Provider>
