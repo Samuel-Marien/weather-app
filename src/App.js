@@ -9,8 +9,8 @@ import Clock from './components/Clock';
 function App() {
   return (
     <Provider>
-      <div className="App w-2/3 mx-auto">
-        <div className="mt-24 flex border border-gray-300">
+      <div>
+        <div className="p-5 flex-col border border-gray-300">
           <WeatherCard />
           <CitySaveBox />
           <Clock />

@@ -4,15 +4,15 @@ import Context from './context';
 
 import { MdFavoriteBorder } from 'react-icons/md';
 
-const SaveButton = () => {
-  const { citySave } = useContext(Context);
+const SaveButton = (props) => {
+  const { city } = props;
   const { setCitySaveView } = useContext(Context);
 
   let counter = localStorage.getItem('localCounter') || 0;
 
-  const handleClick = () => {
+  const handleClick = (city) => {
     counter++;
-    localStorage.setItem(`local${counter}`, citySave);
+    localStorage.setItem(`local${counter}`, city);
     localStorage.setItem('localCounter', counter);
     setCitySaveView((citySaveView) => [
       ...citySaveView,
@@ -22,11 +22,8 @@ const SaveButton = () => {
 
   return (
     <div>
-      {citySave ? (
-        <button
-          className="border-2 border-gray-200 p-2 rounded shadow-lg"
-          onClick={handleClick}
-        >
+      {city ? (
+        <button className="" onClick={() => handleClick(city)}>
           <MdFavoriteBorder />
         </button>
       ) : null}
