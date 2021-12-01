@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 function Clock() {
   const [currentDay, setCurrentDay] = useState('');
-  const [currentDayNumber, setCurrentDayNumber] = useState(new Date().getDay());
+  // const [currentDayNumber, setCurrentDayNumber] = useState(new Date().getDay());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [hour, setHour] = useState(new Date().getHours());
   const [minute, setMinute] = useState(new Date().getMinutes());
   const [second, setSecond] = useState(new Date().getSeconds());
+
+  const currentDayNumber = new Date().getDay();
 
   const displayZero = (number) => {
     return number < 10 ? '0' + number : number;
@@ -33,7 +35,7 @@ function Clock() {
     <div>
       <div>
         <span>{currentDay} </span>
-        <span>{currentDayNumber} </span>
+        <span>{displayZero(currentDayNumber)} </span>
         <span>{currentMonth}</span>
       </div>
       <span>{displayZero(hour)} : </span>

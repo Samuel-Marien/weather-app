@@ -4,18 +4,28 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 //with weatherApi.com by city name
 export const fetchWeather = async (cityName) => {
-  const { data } = await axios(
-    `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cityName}&days=3`
-  );
-  return data;
+  try {
+    const { data } = await axios(
+      `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cityName}&days=3`
+    );
+    return data;
+  } catch (error) {
+    // const err = error;
+    // console.log(error);
+  }
 };
 
 //with weatherApi.com by coord
 export const fetchSuperWeather = async (lat, lon) => {
-  const { data } = await axios(
-    `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${lat},${lon}&days=3`
-  );
-  return data;
+  try {
+    const { data } = await axios(
+      `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${lat},${lon}&days=3`
+    );
+    return data;
+  } catch (error) {
+    // const err = error;
+    // console.log(error);
+  }
 };
 
 //get current position

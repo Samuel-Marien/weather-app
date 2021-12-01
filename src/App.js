@@ -4,7 +4,7 @@ import './App.css';
 
 import WeatherCard from './components/WeatherCard';
 import CitySaveBox from './components/CitySaveBox';
-import Clock from './components/clock';
+import Clock from './components/Clock';
 
 function App() {
   return (

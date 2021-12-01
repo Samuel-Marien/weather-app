@@ -27,8 +27,8 @@ const WeatherCard = () => {
       fectchInfo();
       // or send the request by current position (auto)
     } else {
+      //put the coords in request
       const fectchInfo = async () => {
-        //put the coords in request
         const mySuperData = await fetchSuperWeather(
           myPosition.lat,
           myPosition.lon

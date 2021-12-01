@@ -21,12 +21,16 @@ const SaveButton = () => {
   };
 
   return (
-    <button
-      className="border-2 border-gray-200 p-2 rounded shadow-lg"
-      onClick={handleClick}
-    >
-      <MdFavoriteBorder />
-    </button>
+    <div>
+      {citySave ? (
+        <button
+          className="border-2 border-gray-200 p-2 rounded shadow-lg"
+          onClick={handleClick}
+        >
+          <MdFavoriteBorder />
+        </button>
+      ) : null}
+    </div>
   );
 };
 
