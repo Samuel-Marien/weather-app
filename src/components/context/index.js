@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
 
 export const Provider = (props) => {
-  const [userValue, setUserValue] = useState('london');
+  const [userValue, setUserValue] = useState('');
   const [weatherCard, setWeatherCard] = useState('');
   const [myPosition, setMyPosition] = useState({});
   const [citySaveView, setCitySaveView] = useState([]);

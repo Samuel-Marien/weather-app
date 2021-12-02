@@ -33,14 +33,16 @@ function Clock() {
 
   return (
     <div>
-      <div>
-        <span>{currentDay} </span>
-        <span>{displayZero(currentDayNumber)} </span>
+      <div className="text-8xl font-extralight">
+        <span>{displayZero(hour)} : </span>
+        <span>{displayZero(minute)}</span>
+      </div>
+      {/* <span>{displayZero(second)}</span> */}
+      <div className="flex justify-end">
+        <span className="mr-1">{currentDay}</span>
+        <span className="mr-1">{displayZero(currentDayNumber)} </span>
         <span>{currentMonth}</span>
       </div>
-      <span>{displayZero(hour)} : </span>
-      <span>{displayZero(minute)} : </span>
-      <span>{displayZero(second)}</span>
     </div>
   );
 }

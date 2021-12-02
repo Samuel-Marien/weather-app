@@ -7,6 +7,10 @@ import MyInput from './MyInput';
 import MyButton from './MyButton';
 import SaveButton from './SaveButton';
 
+import { RiTempColdFill, RiUserHeartLine } from 'react-icons/ri';
+import { WiHumidity, WiWindDeg, WiSmallCraftAdvisory } from 'react-icons/wi';
+import { BsSunglasses } from 'react-icons/bs';
+import { GiSunrise, GiSunset } from 'react-icons/gi';
 const WeatherCard = () => {
   const { myPosition, setMyPosition } = useContext(Context);
   const { weatherCard, setWeatherCard } = useContext(Context);
@@ -45,42 +49,75 @@ const WeatherCard = () => {
     userValue
   ]);
 
+  const WeatherItem = (props) => {
+    const { icon, children } = props;
+    return (
+      <div className="flex items-center">
+        <span className="mr-1 text-xl">{icon}</span>
+        {children}
+      </div>
+    );
+  };
+
   return (
     <div className="flex-col">
-      <div className="flex">
+      <div className="flex justify-between">
         <MyInput />
         <MyButton />
       </div>
 
       {weatherCard ? (
-        <div className="flex-col">
+        <div className="flex-col w-96">
+          <div className="my-7">
+            <div className="flex">
+              <div className="flex">
+                <span className="text-6xl">{weatherCard.location.name}</span>
+                <SaveButton city={weatherCard.location.name} />
+              </div>
+            </div>
+            <div className="text-sm">{weatherCard.location.country}</div>
+          </div>
           <div>
             <img
+              className="w-24"
               src={weatherCard.current.condition.icon}
               alt={weatherCard.current.condition.text}
             />
             <div>{weatherCard.forecast.forecastday[0].day.condition.text}</div>
           </div>
-          <div className="my-5">
-            <div className="flex">
-              <div className="text-4xl">{weatherCard.location.name}</div>
-              <SaveButton city={weatherCard.location.name} />
+          <div className="mt-5">
+            <WeatherItem icon={<RiTempColdFill />}>
+              <span className="text-6xl">{weatherCard.current.temp_c} °</span>
+              <span className="text-sm inline-flex ml-2 self-end">
+                <RiUserHeartLine />
+                {weatherCard.current.feelslike_c} °
+              </span>
+            </WeatherItem>
+            <div className="mt-5 flex">
+              <div className="mr-10">
+                <WeatherItem icon={<WiHumidity />}>
+                  {weatherCard.current.humidity} %
+                </WeatherItem>
+                <WeatherItem icon={<BsSunglasses />}>
+                  UV : {weatherCard.current.uv}
+                </WeatherItem>
+                <WeatherItem icon={<WiWindDeg />}>
+                  Win : {weatherCard.current.wind_dir}
+                </WeatherItem>
+              </div>
+              <div>
+                <WeatherItem icon={<WiSmallCraftAdvisory />}>
+                  {weatherCard.current.wind_kph} km/h
+                </WeatherItem>
+                <WeatherItem icon={<GiSunrise />}>
+                  {weatherCard.forecast.forecastday[0].astro.sunrise}
+                </WeatherItem>
+                <WeatherItem icon={<GiSunset />}>
+                  {weatherCard.forecast.forecastday[0].astro.sunset}
+                </WeatherItem>
+              </div>
             </div>
-            <div className="text-xs">{weatherCard.location.country}</div>
-          </div>
-          <div>
-            <div>Temp : {weatherCard.current.temp_c} °</div>
-            <div>Feel like : {weatherCard.current.feelslike_c} °</div>
-            <div>Humidity : {weatherCard.current.humidity} %</div>
-            <div>UV : {weatherCard.current.uv}</div>
-            <div>Win direction : {weatherCard.current.wind_dir}</div>
-            <div>Win speed : {weatherCard.current.wind_kph} km/h</div>
-            <div>
-              Sunrise : {weatherCard.forecast.forecastday[0].astro.sunrise}
-            </div>
-            <div>
-              Sunset : {weatherCard.forecast.forecastday[0].astro.sunset}
-            </div>
+
             <div className="text-xs mt-5">
               Last updated : {weatherCard.current.last_updated}
             </div>
