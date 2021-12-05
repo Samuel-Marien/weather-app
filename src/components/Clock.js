@@ -15,7 +15,6 @@ function Clock() {
   const refreshClock = () => {
     setHour(new Date().getHours());
     setMinute(new Date().getMinutes());
-    // setSecond(new Date().getSeconds());
   };
 
   useEffect(() => {
@@ -36,8 +35,7 @@ function Clock() {
       <div className="flex text-7xl font-extralight">
         <span>{displayZero(hour)}</span> :<span>{displayZero(minute)}</span>
       </div>
-      {/* <span>{displayZero(second)}</span> */}
-      <div className="flex justify-end">
+      <div className="flex">
         <span className="mr-1">{currentDay}</span>
         <span className="mr-1">{displayZero(currentDayNumber)} </span>
         <span>{currentMonth}</span>

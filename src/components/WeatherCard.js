@@ -17,7 +17,7 @@ const WeatherCard = () => {
   const { weatherCard, setWeatherCard } = useContext(Context);
   const { userValue } = useContext(Context);
 
-  // console.log(weatherCard);
+  console.log(weatherCard);
 
   useEffect(() => {
     //send the request by user value
