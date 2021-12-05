@@ -25,10 +25,7 @@ const MyButton = () => {
   };
 
   return (
-    <button
-      onClick={handleClick}
-      className="border-2 border-gray-200 p-2 rounded shadow-lg"
-    >
+    <button onClick={handleClick}>
       <BiCurrentLocation size={25} />
     </button>
   );

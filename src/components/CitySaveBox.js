@@ -53,8 +53,8 @@ const CitySaveBox = () => {
   };
 
   return (
-    <div>
-      <div className="flex items-center mb-1 pb-1">
+    <div className="">
+      <div className="flex items-center mb-1 pb-1 shadow-lg rounded-md p-3">
         <div>My favorites citys</div>
         {show ? (
           <div className="ml-5 cursor-pointer " onClick={toggleMenu}>
@@ -66,21 +66,25 @@ const CitySaveBox = () => {
           </div>
         )}
       </div>
-      {show
-        ? arr
-          ? arr.map((item, index) => {
-              return (
-                <div key={index}>
-                  <CityBoxItem myKey={item} />
-                </div>
-              );
-            })
-          : null
-        : null}
+      <div className="bg-white bg-opacity-10 rounded px-2 shadow-lg">
+        {show
+          ? arr
+            ? arr.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <CityBoxItem myKey={item} />
+                  </div>
+                );
+              })
+            : null
+          : null}
+      </div>
+
       {show && arr.length > 0 ? (
-        <div className="flex items-center border-t-2 mt-1 pt-1">
-          <BsTrash onClick={deleteAllCitys} className="mr-5 cursor-pointer" />
-          <div>Delete all</div>
+        <div className="flex justify-center border-t pt-1 bg-white bg-opacity-10 rounded-b-lg">
+          <div onClick={deleteAllCitys} className="cursor-pointer">
+            Delete all
+          </div>
         </div>
       ) : null}
     </div>

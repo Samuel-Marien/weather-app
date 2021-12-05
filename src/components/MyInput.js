@@ -21,16 +21,23 @@ const MyInput = () => {
   };
 
   return (
-    <div className="flex">
-      <form onSubmit={handleSubmit}>
-        <div className="border-2 border-gray-200 p-2 rounded w-80">
-          <input onChange={handleChange} placeholder="Search for a city..." />
-          <button type="submit" onClick={handleClick}>
-            <FaSearchLocation size={20} />
-          </button>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className=" rounded flex">
+        <input
+          onChange={handleChange}
+          placeholder="Search for a city..."
+          className=" appearance-none placeholder-gray-500 border-b py-2 px-3 focus:outline-none bg-white bg-opacity-10 rounded"
+        />
+        <button
+          type="submit"
+          onClick={handleClick}
+          className="ml-3"
+          style={{ transform: 'translate(-50px)' }}
+        >
+          <FaSearchLocation size={20} />
+        </button>
+      </div>
+    </form>
   );
 };
 

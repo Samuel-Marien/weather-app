@@ -61,13 +61,13 @@ const WeatherCard = () => {
 
   return (
     <div className="flex-col">
-      <div className="flex justify-between">
+      <div className="flex mb-5">
         <MyInput />
         <MyButton />
       </div>
 
       {weatherCard ? (
-        <div className="flex-col w-96">
+        <div className="flex-col w-96 bg-white bg-opacity-30 p-2 rounded-lg">
           <div className="mt-7">
             <div className="flex">
               <div className="flex">
@@ -98,17 +98,18 @@ const WeatherCard = () => {
                 <WeatherItem icon={<WiHumidity />}>
                   {weatherCard.current.humidity} %
                 </WeatherItem>
-                <WeatherItem icon={<BsSunglasses />}>
-                  UV : {weatherCard.current.uv} /10
+                <WeatherItem icon={<WiSmallCraftAdvisory />}>
+                  {weatherCard.current.wind_kph} km/h
                 </WeatherItem>
                 <WeatherItem icon={<WiWindDeg />}>
                   Win : {weatherCard.current.wind_dir}
                 </WeatherItem>
               </div>
               <div>
-                <WeatherItem icon={<WiSmallCraftAdvisory />}>
-                  {weatherCard.current.wind_kph} km/h
+                <WeatherItem icon={<BsSunglasses />}>
+                  UV : {weatherCard.current.uv} /10
                 </WeatherItem>
+
                 <WeatherItem icon={<GiSunrise />}>
                   {weatherCard.forecast.forecastday[0].astro.sunrise}
                 </WeatherItem>
