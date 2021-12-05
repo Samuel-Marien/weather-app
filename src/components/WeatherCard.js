@@ -68,7 +68,7 @@ const WeatherCard = () => {
 
       {weatherCard ? (
         <div className="flex-col w-96">
-          <div className="my-7">
+          <div className="mt-7">
             <div className="flex">
               <div className="flex">
                 <span className="text-6xl">{weatherCard.location.name}</span>

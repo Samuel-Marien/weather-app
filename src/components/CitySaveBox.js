@@ -45,11 +45,13 @@ const CitySaveBox = () => {
 
   return (
     <div className="border border-gray-300">
+      {/* le test  */}
+
+      {/* la base  */}
       <div className="flex">
         <h1>my favorites city(s)</h1>
         <BiRefresh onClick={deleteAllCitys} className=" cursor-pointer" />
       </div>
-
       {arr
         ? arr.map((item, index) => {
             return <CityBoxItem myKey={item} key={index} />;
