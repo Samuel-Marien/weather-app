@@ -1,14 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import Context from './context';
 
 import { BsTrash } from 'react-icons/bs';
-import { BiRefresh } from 'react-icons/bi';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
 const CitySaveBox = () => {
+  const [show, setShow] = useState(false);
   const { setCitySaveView } = useContext(Context);
   const { setUserValue } = useContext(Context);
   const arr = [];
+
+  const toggleMenu = () => {
+    if (show) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+  };
 
   const deleteCity = (key) => {
     localStorage.removeItem(key);
@@ -31,32 +40,49 @@ const CitySaveBox = () => {
     const { myKey } = props;
     return (
       <div className="flex cursor-pointer">
-        <div onClick={() => setUserValue(localStorage.getItem(myKey))}>
-          {localStorage.getItem(myKey)}
-        </div>
+        <button onClick={() => deleteCity(myKey)} className="mr-5">
+          <BsTrash />
+        </button>
         {localStorage.getItem(myKey) ? (
-          <button onClick={() => deleteCity(myKey)} className="ml-5">
-            <BsTrash />
-          </button>
+          <div onClick={() => setUserValue(localStorage.getItem(myKey))}>
+            {localStorage.getItem(myKey)}
+          </div>
         ) : null}
       </div>
     );
   };
 
   return (
-    <div className="border border-gray-300">
-      {/* le test  */}
-
-      {/* la base  */}
-      <div className="flex">
-        <h1>my favorites city(s)</h1>
-        <BiRefresh onClick={deleteAllCitys} className=" cursor-pointer" />
+    <div>
+      <div className="flex items-center mb-1 pb-1">
+        <div>My favorites citys</div>
+        {show ? (
+          <div className="ml-5 cursor-pointer " onClick={toggleMenu}>
+            <MdKeyboardArrowDown />
+          </div>
+        ) : (
+          <div className="ml-5 cursor-pointer " onClick={toggleMenu}>
+            <MdKeyboardArrowUp />
+          </div>
+        )}
       </div>
-      {arr
-        ? arr.map((item, index) => {
-            return <CityBoxItem myKey={item} key={index} />;
-          })
+      {show
+        ? arr
+          ? arr.map((item, index) => {
+              return (
+                <div key={index}>
+                  <CityBoxItem myKey={item} />
+                </div>
+              );
+            })
+          : null
         : null}
+      {show && arr.length > 0 ? (
+        <div className="flex items-center border-t-2 mt-1 pt-1">
+          <BsTrash onClick={deleteAllCitys} className="mr-5 cursor-pointer" />
+          <div>Delete all</div>
+        </div>
+      ) : null}
     </div>
   );
 };

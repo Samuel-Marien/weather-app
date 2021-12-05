@@ -99,7 +99,7 @@ const WeatherCard = () => {
                   {weatherCard.current.humidity} %
                 </WeatherItem>
                 <WeatherItem icon={<BsSunglasses />}>
-                  UV : {weatherCard.current.uv}
+                  UV : {weatherCard.current.uv} /10
                 </WeatherItem>
                 <WeatherItem icon={<WiWindDeg />}>
                   Win : {weatherCard.current.wind_dir}
