@@ -33,9 +33,8 @@ function Clock() {
 
   return (
     <div>
-      <div className="text-8xl font-extralight">
-        <span>{displayZero(hour)} : </span>
-        <span>{displayZero(minute)}</span>
+      <div className="flex text-7xl font-extralight">
+        <span>{displayZero(hour)}</span> :<span>{displayZero(minute)}</span>
       </div>
       {/* <span>{displayZero(second)}</span> */}
       <div className="flex justify-end">

@@ -39,14 +39,15 @@ const CitySaveBox = () => {
   const CityBoxItem = (props) => {
     const { myKey } = props;
     return (
-      <div className="flex cursor-pointer">
-        <button onClick={() => deleteCity(myKey)} className="mr-5">
-          <BsTrash />
+      <div
+        onClick={() => setUserValue(localStorage.getItem(myKey))}
+        className=" py-1 px-3 flex cursor-pointer hover:bg-white active:bg-blue-300"
+      >
+        <button onClick={() => deleteCity(myKey)} className="mr-5 ">
+          <BsTrash className="delay-75 duration-100 transform hover:scale-125 hover:text-red-700 transition ease-linear" />
         </button>
         {localStorage.getItem(myKey) ? (
-          <div onClick={() => setUserValue(localStorage.getItem(myKey))}>
-            {localStorage.getItem(myKey)}
-          </div>
+          <div>{localStorage.getItem(myKey)}</div>
         ) : null}
       </div>
     );
@@ -55,7 +56,7 @@ const CitySaveBox = () => {
   return (
     <div className="">
       <div className="flex items-center mb-1 pb-1 shadow-lg rounded-md p-3">
-        <div>My favorites citys</div>
+        <div>My saved citys</div>
         {show ? (
           <div className="ml-5 cursor-pointer " onClick={toggleMenu}>
             <MdKeyboardArrowDown />
@@ -66,7 +67,7 @@ const CitySaveBox = () => {
           </div>
         )}
       </div>
-      <div className="bg-white bg-opacity-10 rounded px-2 shadow-lg">
+      <div className="bg-white bg-opacity-10 rounded shadow-lg ">
         {show
           ? arr
             ? arr.map((item, index) => {
@@ -82,7 +83,10 @@ const CitySaveBox = () => {
 
       {show && arr.length > 0 ? (
         <div className="flex justify-center border-t pt-1 bg-white bg-opacity-10 rounded-b-lg">
-          <div onClick={deleteAllCitys} className="cursor-pointer">
+          <div
+            onClick={deleteAllCitys}
+            className="cursor-pointer hover:text-red-600"
+          >
             Delete all
           </div>
         </div>

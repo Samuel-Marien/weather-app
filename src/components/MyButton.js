@@ -25,7 +25,10 @@ const MyButton = () => {
   };
 
   return (
-    <button onClick={handleClick}>
+    <button
+      onClick={handleClick}
+      className="delay-75 duration-100 transform hover:scale-125 hover:text-blue-700 transition ease-linear "
+    >
       <BiCurrentLocation size={25} />
     </button>
   );

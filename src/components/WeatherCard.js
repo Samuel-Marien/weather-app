@@ -11,12 +11,13 @@ import { RiTempColdFill, RiUserHeartLine } from 'react-icons/ri';
 import { WiHumidity, WiWindDeg, WiSmallCraftAdvisory } from 'react-icons/wi';
 import { BsSunglasses } from 'react-icons/bs';
 import { GiSunrise, GiSunset } from 'react-icons/gi';
+
 const WeatherCard = () => {
   const { myPosition, setMyPosition } = useContext(Context);
   const { weatherCard, setWeatherCard } = useContext(Context);
   const { userValue } = useContext(Context);
 
-  console.log(weatherCard);
+  // console.log(weatherCard);
 
   useEffect(() => {
     //send the request by user value
@@ -67,12 +68,14 @@ const WeatherCard = () => {
       </div>
 
       {weatherCard ? (
-        <div className="flex-col w-96 bg-white bg-opacity-30 p-2 rounded-lg">
+        <div className="flex-col bg-white bg-opacity-30 p-2 rounded-lg">
           <div className="mt-7">
             <div className="flex">
               <div className="flex">
                 <span className="text-6xl">{weatherCard.location.name}</span>
-                <SaveButton city={weatherCard.location.name} />
+                <div className="delay-75 duration-100 transform hover:scale-110 hover:text-red-700 transition ease-linear">
+                  <SaveButton city={weatherCard.location.name} />
+                </div>
               </div>
             </div>
             <div className="text-sm">{weatherCard.location.country}</div>
