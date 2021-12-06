@@ -6,7 +6,6 @@ function Clock() {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [hour, setHour] = useState(new Date().getHours());
   const [minute, setMinute] = useState(new Date().getMinutes());
-  // const [second, setSecond] = useState(new Date().getSeconds());
 
   const displayZero = (number) => {
     return number < 10 ? '0' + number : number;
@@ -35,7 +34,7 @@ function Clock() {
       <div className="flex text-7xl font-extralight">
         <span>{displayZero(hour)}</span> :<span>{displayZero(minute)}</span>
       </div>
-      <div className="flex">
+      <div className="flex justify-end">
         <span className="mr-1">{currentDay}</span>
         <span className="mr-1">{displayZero(currentDayNumber)} </span>
         <span>{currentMonth}</span>

@@ -17,7 +17,7 @@ const WeatherCard = () => {
   const { weatherCard, setWeatherCard } = useContext(Context);
   const { userValue } = useContext(Context);
 
-  console.log(weatherCard);
+  // console.log(weatherCard);
 
   useEffect(() => {
     //send the request by user value
@@ -68,7 +68,7 @@ const WeatherCard = () => {
       </div>
 
       {weatherCard ? (
-        <div className="flex-col bg-white bg-opacity-30 p-2 rounded-lg">
+        <div className="flex-col bg-white bg-opacity-60 p-2 rounded-lg">
           <div className="mt-7">
             <div className="flex">
               <div className="flex">

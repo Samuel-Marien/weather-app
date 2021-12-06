@@ -55,7 +55,7 @@ const CitySaveBox = () => {
 
   return (
     <div className="">
-      <div className="flex items-center mb-1 pb-1 shadow-lg rounded-md p-3">
+      <div className="w-48 flex items-center mb-1 pb-1 shadow-lg rounded-md p-3">
         <div>My saved citys</div>
         {show ? (
           <div className="ml-5 cursor-pointer " onClick={toggleMenu}>
