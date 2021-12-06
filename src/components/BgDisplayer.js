@@ -5,14 +5,14 @@ import Context from './context';
 import iconToBg from './iconToBg';
 
 const BgDisplayer = (props) => {
+  const { children } = props;
   const { weatherCard } = useContext(Context);
 
   const myUrl = iconToBg(weatherCard);
 
-  const { children } = props;
   return (
     <div
-      className="overflow-hidden  rounded-xl  mt-20 shadow-lg"
+      className="overflow-hidden w-auto m-10 rounded-xl shadow-lg"
       style={{
         backgroundImage: `url(${myUrl})`,
         backgroundSize: 'cover'

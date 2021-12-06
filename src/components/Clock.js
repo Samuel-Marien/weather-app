@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+
+import Context from './context';
 
 function Clock() {
+  const { weatherCard } = useContext(Context);
   const [currentDay, setCurrentDay] = useState('');
   const [currentDayNumber, setCurrentDayNumber] = useState(new Date().getDay());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [hour, setHour] = useState(new Date().getHours());
   const [minute, setMinute] = useState(new Date().getMinutes());
+  const [colorClock, setColorClock] = useState(true);
 
   const displayZero = (number) => {
     return number < 10 ? '0' + number : number;
@@ -17,6 +21,19 @@ function Clock() {
   };
 
   useEffect(() => {
+    const toggleColorClock = () => {
+      if (weatherCard) {
+        if (
+          weatherCard.current.last_updated.slice(11, 13) > 20 ||
+          weatherCard.current.last_updated.slice(11, 13) <= 6
+        ) {
+          setColorClock(false);
+        } else {
+          setColorClock(true);
+        }
+      }
+    };
+    toggleColorClock();
     let dayOptions = { weekday: 'long' };
     let monthOptions = { month: 'long' };
     setCurrentDay(new Intl.DateTimeFormat('fr-FR', dayOptions).format());
@@ -27,11 +44,11 @@ function Clock() {
     return function cleanup() {
       clearInterval(timerId);
     };
-  }, []);
+  }, [colorClock, weatherCard]);
 
   return (
-    <div>
-      <div className="flex text-7xl font-extralight">
+    <div className={colorClock ? 'text-black' : 'text-white'}>
+      <div className="flex justify-end text-7xl font-extralight">
         <span>{displayZero(hour)}</span> :<span>{displayZero(minute)}</span>
       </div>
       <div className="flex justify-end">

@@ -305,8 +305,8 @@ const iconToBg = (item) => {
   for (let i = 0; i < arr.length; i++) {
     if (item) {
       if (item.current.condition.code === arr[i].code) {
-        console.log(arr[i].code);
-        console.log(item.current.last_updated.slice(11, 13));
+        // console.log(arr[i].code);
+        // console.log(item.current.last_updated.slice(11, 13));
         if (
           item.current.last_updated.slice(11, 13) > 20 ||
           item.current.last_updated.slice(11, 13) <= 6
