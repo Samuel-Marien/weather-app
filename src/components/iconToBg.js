@@ -9,7 +9,11 @@ const arr = [
     code: 1003,
     day: 'Partly cloudy',
     night: 'Partly cloudy',
-    icon: 116
+    icon: 116,
+    daySrc:
+      'https://cdn.pixabay.com/photo/2014/08/09/15/45/sky-414199_960_720.jpg',
+    nightSrc:
+      'https://cdn.pixabay.com/photo/2016/11/29/13/12/cloudy-1869753_960_720.jpg'
   },
   {
     code: 1006,
@@ -301,8 +305,18 @@ const iconToBg = (item) => {
   for (let i = 0; i < arr.length; i++) {
     if (item) {
       if (item.current.condition.code === arr[i].code) {
-        const myUrl = arr[i].daySrc;
-        return myUrl;
+        console.log(arr[i].code);
+        console.log(item.current.last_updated.slice(11, 13));
+        if (
+          item.current.last_updated.slice(11, 13) > 20 ||
+          item.current.last_updated.slice(11, 13) <= 6
+        ) {
+          const myUrl = arr[i].nightSrc;
+          return myUrl;
+        } else {
+          const myUrl = arr[i].daySrc;
+          return myUrl;
+        }
       }
     }
   }

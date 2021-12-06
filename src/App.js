@@ -12,7 +12,7 @@ function App() {
   return (
     <Provider>
       <BgDisplayer>
-        <div className="flex px-16 py-8">
+        <div className="flex justify-center py-8">
           <WeatherCard />
           <div className=" ml-10 flex flex-col justify-between">
             <div className="self-end">

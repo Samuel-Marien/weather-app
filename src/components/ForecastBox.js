@@ -16,12 +16,12 @@ const ForecastBox = () => {
   const ForecastItem = (props) => {
     const { day, hour } = props;
     return (
-      <div className="flex-col mr-2 w-max bg-white bg-opacity-50">
+      <div className="flex-col mr-2 w-max bg-white bg-opacity-50 rounded-lg">
         <div>
           {weatherCard.forecast.forecastday[day].hour[hour].time.slice(11)}
         </div>
-        <div className=" bg-white bg-opacity-80 rounded-lg">
-          <div className="flex justify-center">
+        <div className=" bg-white bg-opacity-50 rounded-lg">
+          <div className="flex justify-center w-24">
             <img
               src={
                 weatherCard.forecast.forecastday[day].hour[hour].condition.icon
@@ -151,7 +151,7 @@ const ForecastBox = () => {
     <div className="text-center ">
       <MyBreadcrumb />
       {weatherCard ? (
-        <div className="flex items-center overflow-x">
+        <div className="flex items-center">
           {showToday ? (
             show ? (
               <div className="flex">

@@ -12,7 +12,7 @@ const BgDisplayer = (props) => {
   const { children } = props;
   return (
     <div
-      className="overflow-hidden w-3/4 rounded-xl mx-auto mt-20 shadow-lg"
+      className="overflow-hidden  rounded-xl  mt-20 shadow-lg"
       style={{
         backgroundImage: `url(${myUrl})`,
         backgroundSize: 'cover'
