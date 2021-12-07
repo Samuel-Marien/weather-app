@@ -54,8 +54,8 @@ const CitySaveBox = () => {
   };
 
   return (
-    <div className="">
-      <div className="w-40 p-2 bg-white bg-opacity-20 flex items-center shadow-lg rounded-md">
+    <div className=" overflow-auto h-60">
+      <div className=" p-2 bg-white bg-opacity-20 flex items-center shadow-lg rounded-md">
         <div>My saved citys</div>
         {show ? (
           <div className="ml-5 cursor-pointer " onClick={toggleMenu}>
@@ -67,7 +67,7 @@ const CitySaveBox = () => {
           </div>
         )}
       </div>
-      <div className="bg-white bg-opacity-10 rounded shadow-lg ">
+      <div className="bg-white bg-opacity-10 rounded shadow-lg">
         {show
           ? arr
             ? arr.map((item, index) => {

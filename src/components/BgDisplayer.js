@@ -15,7 +15,8 @@ const BgDisplayer = (props) => {
       className="overflow-hidden w-auto m-10 rounded-xl shadow-lg"
       style={{
         backgroundImage: `url(${myUrl})`,
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        transition: '.5s'
       }}
     >
       {children}

@@ -68,13 +68,16 @@ const WeatherCard = () => {
       </div>
 
       {weatherCard ? (
-        <div className="flex-col bg-white bg-opacity-60 p-2 rounded-lg">
+        <div className="w-80 flex-col bg-white bg-opacity-60 p-2 rounded-lg">
           <div className="mt-7">
             <div className="flex">
               <div className="flex">
                 <span className="text-6xl">{weatherCard.location.name}</span>
                 <div className="delay-75 duration-100 transform hover:scale-110 hover:text-red-700 transition ease-linear">
-                  <SaveButton city={weatherCard.location.name} />
+                  <SaveButton
+                    city={weatherCard.location.name}
+                    className=" text-justify"
+                  />
                 </div>
               </div>
             </div>

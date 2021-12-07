@@ -17,7 +17,7 @@ function App() {
           <div className=" ml-10 flex flex-col justify-between">
             <div className="self-end">
               <Clock />
-              <div className="flex justify-end my-3">
+              <div className="flex justify-end">
                 <CitySaveBox />
               </div>
             </div>

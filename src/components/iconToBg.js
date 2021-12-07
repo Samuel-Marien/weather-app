@@ -3,7 +3,11 @@ const arr = [
     code: 1000,
     day: 'Sunny',
     night: 'Clear',
-    icon: 113
+    icon: 113,
+    daySrc:
+      'https://cdn.pixabay.com/photo/2016/11/21/14/25/architecture-1845689_960_720.jpg',
+    nightSrc:
+      'https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg'
   },
   {
     code: 1003,
@@ -19,7 +23,11 @@ const arr = [
     code: 1006,
     day: 'Cloudy',
     night: 'Cloudy',
-    icon: 119
+    icon: 119,
+    daySrc:
+      'https://cdn.pixabay.com/photo/2014/08/09/15/45/sky-414199_960_720.jpg',
+    nightSrc:
+      'https://cdn.pixabay.com/photo/2016/11/29/13/12/cloudy-1869753_960_720.jpg'
   },
   {
     code: 1009,
@@ -27,7 +35,7 @@ const arr = [
     night: 'Overcast',
     icon: 122,
     daySrc:
-      'https://cdn.pixabay.com/photo/2014/09/21/14/39/surface-455124_960_720.jpg',
+      'https://cdn.pixabay.com/photo/2018/08/24/23/37/raindrops-3629132_960_720.jpg',
     nightSrc:
       'https://cdn.pixabay.com/photo/2016/01/29/15/30/car-1168158_960_720.jpg'
   },
@@ -87,7 +95,11 @@ const arr = [
     code: 1135,
     day: 'Fog',
     night: 'Fog',
-    icon: 248
+    icon: 248,
+    daySrc:
+      'https://cdn.pixabay.com/photo/2016/07/22/16/29/fog-1535201_960_720.jpg',
+    nightSrc:
+      'https://cdn.pixabay.com/photo/2019/05/11/09/14/night-4195327_960_720.jpg'
   },
   {
     code: 1147,
@@ -129,7 +141,11 @@ const arr = [
     code: 1183,
     day: 'Light rain',
     night: 'Light rain',
-    icon: 296
+    icon: 296,
+    daySrc:
+      'https://cdn.pixabay.com/photo/2018/02/03/08/00/background-3127102_960_720.jpg',
+    nightSrc:
+      'https://cdn.pixabay.com/photo/2018/05/31/13/13/rainy-day-3443977_960_720.jpg'
   },
   {
     code: 1186,
@@ -305,7 +321,7 @@ const iconToBg = (item) => {
   for (let i = 0; i < arr.length; i++) {
     if (item) {
       if (item.current.condition.code === arr[i].code) {
-        // console.log(arr[i].code);
+        console.log(arr[i].code);
         // console.log(item.current.last_updated.slice(11, 13));
         if (
           item.current.last_updated.slice(11, 13) > 20 ||
