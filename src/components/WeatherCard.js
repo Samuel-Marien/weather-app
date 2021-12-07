@@ -72,7 +72,12 @@ const WeatherCard = () => {
           <div className="mt-7">
             <div className="flex">
               <div className="flex">
-                <span className="text-6xl">{weatherCard.location.name}</span>
+                {weatherCard.location.name.length > 10 ? (
+                  <span className="text-4xl">{weatherCard.location.name}</span>
+                ) : (
+                  <span className="text-6xl">{weatherCard.location.name}</span>
+                )}
+
                 <div className="delay-75 duration-100 transform hover:scale-110 hover:text-red-700 transition ease-linear">
                   <SaveButton
                     city={weatherCard.location.name}
